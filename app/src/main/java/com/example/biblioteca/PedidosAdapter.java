@@ -21,14 +21,15 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.PedidoVi
     }
     @Override
     public void onBindViewHolder(@NonNull PedidoViewHolder holder, int position) {
-        Pedido pedido = pedidos.get(position);
-        holder.tvNumero.setText(pedido.numero);
-        holder.tvEstado.setText(pedido.estado);
-        holder.tvUsuario.setText(pedido.usuario);
-        holder.tvFecha.setText(pedido.fecha);
-        holder.tvCantidad.setText(pedido.cantidad);
-        holder.tvDireccion.setText(pedido.direccion);
-        holder.tvTotal.setText(pedido.total);
+    Pedido pedido = pedidos.get(position);
+    holder.tvNumero.setText("PEDIDO #" + pedido.idPedido);
+    holder.tvEstado.setText(pedido.estado);
+    setEstadoColor(holder.tvEstado, pedido.estado);
+    holder.tvUsuario.setText(pedido.usuario);
+    holder.tvFecha.setText(pedido.fecha);
+    holder.tvCantidad.setText(pedido.libro != null ? pedido.libro.titulo + " - " + pedido.libro.autor : "");
+    holder.tvDireccion.setText(pedido.descripcion);
+    holder.tvTotal.setText(pedido.libro != null && pedido.libro.stock != null ? "$" + pedido.libro.stock : "");
         View btnVerDetalles = holder.itemView.findViewById(R.id.btnVerDetalles);
         btnVerDetalles.setOnClickListener(v -> {
             androidx.fragment.app.FragmentActivity activity = (androidx.fragment.app.FragmentActivity) v.getContext();
@@ -57,5 +58,26 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.PedidoVi
             tvTotal = itemView.findViewById(R.id.tvTotal);
             btnVerDetalles = itemView.findViewById(R.id.btnVerDetalles);
         }
+    }
+
+    private void setEstadoColor(TextView estadoTag, String estado) {
+        int color;
+        switch (estado.toUpperCase()) {
+            case "PENDIENTE":
+                color = android.graphics.Color.parseColor("#FFC107"); // Amarillo
+                break;
+            case "EN_PROCESO":
+                color = android.graphics.Color.parseColor("#2196F3"); // Azul
+                break;
+            case "COMPLETADO":
+                color = android.graphics.Color.parseColor("#4CAF50"); // Verde
+                break;
+            case "CANCELADO":
+                color = android.graphics.Color.parseColor("#F44336"); // Rojo
+                break;
+            default:
+                color = android.graphics.Color.parseColor("#BDBDBD"); // Gris
+        }
+        estadoTag.setBackgroundColor(color);
     }
 }

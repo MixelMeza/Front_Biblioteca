@@ -15,16 +15,51 @@
         android:textColor="#1B5E20"
         android:layout_marginBottom="16dp" />
 
+
     <EditText
         android:id="@+id/etBuscarPedido"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="Buscar pedidos..."
+        android:hint="Buscar por usuario, libro..."
         android:background="@drawable/rounded_edittext"
         android:paddingLeft="16dp"
         android:textColor="#2E7D32"
         android:textColorHint="#388E3C"
-        android:layout_marginBottom="12dp" />
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <Spinner
+            android:id="@+id/spinnerFiltroEstado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_edittext" />
+        <EditText
+            android:id="@+id/etFiltroPrecio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Precio máx"
+            android:inputType="number"
+            android:background="@drawable/rounded_edittext"
+            android:paddingLeft="8dp"
+            android:textColor="#2E7D32"
+            android:textColorHint="#388E3C" />
+        <EditText
+            android:id="@+id/etFiltroFecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Fecha (YYYY-MM-DD)"
+            android:background="@drawable/rounded_edittext"
+            android:paddingLeft="8dp"
+            android:textColor="#2E7D32"
+            android:textColorHint="#388E3C" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPedidos"
