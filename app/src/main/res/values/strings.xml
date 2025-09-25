@@ -1,4 +1,11 @@
 <resources>
+    <string-array name="estados_pedido">
+        <item>Pendiente</item>
+        <item>En Proceso</item>
+        <item>En Camino</item>
+        <item>Entregado</item>
+        <item>Cancelado</item>
+    </string-array>
     <string name="app_name">Biblioteca</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
