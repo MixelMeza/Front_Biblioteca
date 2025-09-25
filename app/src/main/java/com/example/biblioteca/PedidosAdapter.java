@@ -29,6 +29,15 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.PedidoVi
         holder.tvCantidad.setText(pedido.cantidad);
         holder.tvDireccion.setText(pedido.direccion);
         holder.tvTotal.setText(pedido.total);
+        View btnVerDetalles = holder.itemView.findViewById(R.id.btnVerDetalles);
+        btnVerDetalles.setOnClickListener(v -> {
+            androidx.fragment.app.FragmentActivity activity = (androidx.fragment.app.FragmentActivity) v.getContext();
+            activity.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(android.R.id.content, new DetallePedidoFragment(pedido))
+                .addToBackStack(null)
+                .commit();
+        });
     }
     @Override
     public int getItemCount() {
@@ -36,6 +45,7 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.PedidoVi
     }
     static class PedidoViewHolder extends RecyclerView.ViewHolder {
         TextView tvNumero, tvEstado, tvUsuario, tvFecha, tvCantidad, tvDireccion, tvTotal;
+        View btnVerDetalles;
         public PedidoViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNumero = itemView.findViewById(R.id.tvNumero);
@@ -45,6 +55,7 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.PedidoVi
             tvCantidad = itemView.findViewById(R.id.tvCantidad);
             tvDireccion = itemView.findViewById(R.id.tvDireccion);
             tvTotal = itemView.findViewById(R.id.tvTotal);
+            btnVerDetalles = itemView.findViewById(R.id.btnVerDetalles);
         }
     }
 }

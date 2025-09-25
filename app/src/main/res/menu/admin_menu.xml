@@ -12,6 +12,10 @@
         android:title="Libros"
         android:icon="@drawable/ic_book" />
     <item
+        android:id="@+id/nav_admin_pedidos"
+        android:title="Pedidos"
+        android:icon="@drawable/ic_menu" />
+    <item
         android:id="@+id/nav_admin_settings"
         android:title="Configuración"
         android:icon="@drawable/ic_settings" />
