@@ -1,4 +1,17 @@
 <resources>
+    <string-array name="estados_pedido">
+        <item>PENDIENTE</item>
+        <item>EN_PROCESO</item>
+        <item>COMPLETADO</item>
+        <item>CANCELADO</item>
+    </string-array>
+    <string-array name="estados_pedido_filtro">
+        <item>Todos</item>
+        <item>PENDIENTE</item>
+        <item>EN_PROCESO</item>
+        <item>COMPLETADO</item>
+        <item>CANCELADO</item>
+    </string-array>
     <string name="app_name">Biblioteca</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

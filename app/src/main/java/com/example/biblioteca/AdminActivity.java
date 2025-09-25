@@ -31,6 +31,13 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
                 return true;
+            } else if (item.getItemId() == R.id.nav_admin_pedidos) {
+                getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.admin_content, new PedidosFragment())
+                    .addToBackStack(null)
+                    .commit();
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
             }
             return false;
         });
