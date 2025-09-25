@@ -33,13 +33,21 @@ public class AdminActivity extends AppCompatActivity {
                 return true;
             } else if (item.getItemId() == R.id.nav_admin_pedidos) {
                 getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.admin_content, new PedidosFragment())
-                    .addToBackStack(null)
-                    .commit();
+                        .replace(R.id.admin_content, new PedidosFragment())
+                        .addToBackStack(null)
+                        .commit();
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            } else if (item.getItemId() == R.id.nav_admin_books) {  // <-- Aquí agregas
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.admin_content, new LibroFragment()) // tu fragmento de libros
+                        .addToBackStack(null)
+                        .commit();
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
             return false;
         });
+
     }
 }

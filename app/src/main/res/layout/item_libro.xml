@@ -1,30 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="12dp"
     android:background="@android:color/white"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:elevation="4dp"
+    android:clipToPadding="false">
 
+    <!-- Título -->
     <TextView
         android:id="@+id/tvTitulo"
         android:text="Título"
         android:textStyle="bold"
         android:textSize="18sp"
+        android:textColor="#111827"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"/>
 
+    <!-- Autor -->
     <TextView
         android:id="@+id/tvAutor"
         android:text="Autor"
         android:textSize="14sp"
+        android:textColor="#6B7280"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"/>
 
+    <!-- Estado / Stock -->
     <TextView
         android:id="@+id/tvEstado"
-        android:text="Estado"
+        android:text="Disponible"
         android:textColor="@android:color/holo_green_dark"
+        android:textSize="12sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Botones -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="4dp"
+        android:weightSum="3">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnVer"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_eye"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="#10B981"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnEditar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_edit"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="#3B82F6"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnEliminar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_trash"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="#EF4444"/>
+    </LinearLayout>
+
 </LinearLayout>

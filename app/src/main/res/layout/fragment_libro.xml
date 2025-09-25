@@ -1,21 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#F5F5F5"
     android:padding="16dp">
 
+
+    <!-- Título -->
     <TextView
-        android:id="@+id/txtTitulo"
+        android:id="@+id/tvTituloFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Listado de Libros"
+        android:text="Artículos"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
+        android:textColor="#111827"
+        android:layout_marginBottom="12dp"/>
 
+    <!-- Buscador moderno con icono -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/search_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Buscar libros..."
+            android:textColor="#111827"
+            android:textColorHint="#9CA3AF"
+            android:textSize="14sp"
+            android:drawableStart="@drawable/ic_search"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- Filtro y botón agregar modernos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+
+        <!-- Spinner para categoría/filtro -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/filter_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp">
+            <AutoCompleteTextView
+                android:id="@+id/spinnerCategoria"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Todos"
+                android:paddingStart="8dp"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón de agregar flotante -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAgregar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_plus"
+            app:backgroundTint="@color/green_700"
+            app:tint="@android:color/white"
+            android:contentDescription="Agregar libro" />
+
+    </LinearLayout>
+
+    <!-- RecyclerView para mostrar tus items -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerLibros"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp"/>
+
 </LinearLayout>
