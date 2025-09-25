@@ -16,10 +16,6 @@
         android:title="Pedidos"
         android:icon="@drawable/ic_menu" />
     <item
-        android:id="@+id/nav_admin_settings"
-        android:title="Configuración"
-        android:icon="@drawable/ic_settings" />
-    <item
         android:id="@+id/nav_admin_signout"
         android:title="Cerrar sesión"
         android:icon="@drawable/ic_logout" />

@@ -10,6 +10,7 @@ import com.example.biblioteca.R;
 import com.example.biblioteca.ui.model.Libro;
 
 import java.util.List;
+
 public class LibroAdapter extends RecyclerView.Adapter<LibroAdapter.LibroViewHolder> {
     private List<Libro> libros;
     private OnLibroClickListener listener;
@@ -38,8 +39,13 @@ public class LibroAdapter extends RecyclerView.Adapter<LibroAdapter.LibroViewHol
     @Override
     public void onBindViewHolder(@NonNull LibroViewHolder holder, int position) {
         Libro libro = libros.get(position);
+
+        // Asignar datos
         holder.tvTitulo.setText(libro.getTitulo());
+        holder.tvAutor.setText(libro.getAutor());
         holder.tvStock.setText("Stock: " + (libro.getStock() != null ? libro.getStock() : 0));
+
+        // Eventos de botones
         holder.btnEditar.setOnClickListener(v -> {
             if (listener != null) listener.onEditarClick(libro);
         });
@@ -54,13 +60,14 @@ public class LibroAdapter extends RecyclerView.Adapter<LibroAdapter.LibroViewHol
     }
 
     public static class LibroViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitulo, tvStock;
+        TextView tvTitulo, tvAutor, tvStock;
         View btnEditar, btnEliminar;
 
         public LibroViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTitulo = itemView.findViewById(R.id.tvTitulo);
-            tvStock = itemView.findViewById(R.id.tvStock);
+            tvTitulo = itemView.findViewById(R.id.tvLibroTitulo);
+            tvAutor = itemView.findViewById(R.id.tvLibroAutor);
+            tvStock = itemView.findViewById(R.id.tvLibroStock);
             btnEditar = itemView.findViewById(R.id.btnEditar);
             btnEliminar = itemView.findViewById(R.id.btnEliminar);
         }

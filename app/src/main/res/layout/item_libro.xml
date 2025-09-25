@@ -1,80 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:padding="12dp"
-    android:background="@android:color/white"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:elevation="4dp"
-    android:clipToPadding="false">
+    card_view:cardCornerRadius="16dp"
+    card_view:cardElevation="6dp"
+    android:layout_marginBottom="16dp"
+    android:background="#FFFFFF">
 
-    <!-- Título -->
-    <TextView
-        android:id="@+id/tvTitulo"
-        android:text="Título"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:textColor="#111827"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"/>
-
-    <!-- Autor -->
-    <TextView
-        android:id="@+id/tvAutor"
-        android:text="Autor"
-        android:textSize="14sp"
-        android:textColor="#6B7280"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"/>
-
-    <!-- Estado / Stock -->
-    <TextView
-        android:id="@+id/tvEstado"
-        android:text="Disponible"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="12sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"/>
-
-    <!-- Botones -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end"
-        android:layout_marginTop="4dp"
-        android:weightSum="3">
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#F7FAFC">
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btnVer"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/ic_eye"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:tint="#10B981"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_book"
+                android:tint="#388E3C"
+                android:layout_marginEnd="12dp" />
+            <TextView
+                android:id="@+id/tvLibroTitulo"
+                android:text="Título del libro"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#1B5E20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btnEditar"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/ic_edit"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:tint="#3B82F6"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_person"
+                android:tint="#2196F3"
+                android:layout_marginEnd="6dp" />
+            <TextView
+                android:id="@+id/tvLibroAutor"
+                android:text="Autor"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btnEliminar"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/ic_trash"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:tint="#EF4444"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_info"
+                android:tint="#FFC107"
+                android:layout_marginEnd="6dp" />
+            <TextView
+                android:id="@+id/tvLibroStock"
+                android:text="Precio: $0"
+                android:textColor="#388E3C"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnHacerPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hacer Pedido"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#388E3C"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>

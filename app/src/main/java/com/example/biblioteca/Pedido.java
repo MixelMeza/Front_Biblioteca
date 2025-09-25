@@ -1,21 +1,21 @@
 package com.example.biblioteca;
 
 public class Pedido {
-    public String numero;
+    public Long idPedido;
+    public String fecha;
+    public String descripcion;
     public String estado;
     public String usuario;
-    public String fecha;
-    public String cantidad;
-    public String direccion;
-    public String total;
+    public Libro libro;
 
-    public Pedido(String numero, String estado, String usuario, String fecha, String cantidad, String direccion, String total) {
-        this.numero = numero;
-        this.estado = estado;
-        this.usuario = usuario;
-        this.fecha = fecha;
-        this.cantidad = cantidad;
-        this.direccion = direccion;
-        this.total = total;
+    public static class Libro {
+        public Long idLibro;
+        public String titulo;
+        public String autor;
+        public String estado;
+        public String categoria;
+        public String codigo;
+        public Integer stock;
+        public String descripcion;
     }
 }

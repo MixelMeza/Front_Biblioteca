@@ -1,6 +1,8 @@
 package com.example.biblioteca.ui.model;
 
-public class Libro {
+import java.io.Serializable;
+
+public class Libro implements Serializable {
     private Long idLibro;
     private String titulo;
     private String autor;

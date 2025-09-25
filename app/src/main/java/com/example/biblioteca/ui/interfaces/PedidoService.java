@@ -12,8 +12,12 @@ import com.example.biblioteca.Pedido;
 import java.util.List;
 
 public interface PedidoService {
+
     @GET("pedidos")
     Call<List<Pedido>> getPedidos();
+
+    @GET("pedidos/mis")
+    Call<List<Pedido>> getMisPedidos();
 
     @GET("pedidos/{id}")
     Call<Pedido> getPedido(@Path("id") String id);

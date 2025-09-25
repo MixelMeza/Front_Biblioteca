@@ -26,11 +26,13 @@ public class LoginActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString().trim();
                 if (username.equals("admin") && password.equals("admin")) {
                     tvLoginError.setText("");
+                    getSharedPreferences("session", MODE_PRIVATE).edit().putString("usuario", username).apply();
                     Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                     startActivity(intent);
                     finish();
                 } else if (username.equals("usuario") && password.equals("usuario")) {
                     tvLoginError.setText("");
+                    getSharedPreferences("session", MODE_PRIVATE).edit().putString("usuario", username).apply();
                     Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                     startActivity(intent);
                     finish();
