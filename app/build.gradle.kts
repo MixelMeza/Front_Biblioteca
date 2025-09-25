@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.biblioteca"
-        minSdk = 36
+        minSdk = 35
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -49,5 +49,7 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation("androidx.cardview:cardview:1.0.0")
 
 }
