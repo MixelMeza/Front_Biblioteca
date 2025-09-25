@@ -22,4 +22,10 @@
         android:name="com.example.biblioteca.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_admin_books"
+        android:name="com.example.biblioteca.LibroFragment"
+        android:label="Libros"
+        tools:layout="@layout/fragment_libro" />
 </navigation>
