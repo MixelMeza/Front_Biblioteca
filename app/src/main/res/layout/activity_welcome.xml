@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_welcome_books">
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BiblioGo"
+        android:textSize="44sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:shadowColor="#2E7D32"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="8"
+        android:gravity="center"
+        android:layout_gravity="center"
+        />
+
+</FrameLayout>
