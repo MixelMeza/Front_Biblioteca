@@ -28,9 +28,9 @@ public class LibroAdapter  extends RecyclerView.Adapter<LibroAdapter.LibroViewHo
     @Override
     public void onBindViewHolder(@NonNull LibroViewHolder holder, int position) {
         Libro libro = libros.get(position);
-        holder.tvTitulo.setText(libro.getTitulo());
-        holder.tvAutor.setText(libro.getAutor());
-        holder.tvEstado.setText(libro.getEstado());
+    holder.tvLibroTitulo.setText(libro.getTitulo());
+    holder.tvLibroAutor.setText(libro.getAutor());
+    holder.tvLibroStock.setText("Stock: " + libro.getStock());
     }
 
     @Override
@@ -39,13 +39,13 @@ public class LibroAdapter  extends RecyclerView.Adapter<LibroAdapter.LibroViewHo
     }
 
     public static class LibroViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitulo, tvAutor, tvEstado;
+    TextView tvLibroTitulo, tvLibroAutor, tvLibroStock;
 
         public LibroViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTitulo = itemView.findViewById(R.id.tvTitulo);
-            tvAutor = itemView.findViewById(R.id.tvAutor);
-            tvEstado = itemView.findViewById(R.id.tvEstado);
+            tvLibroTitulo = itemView.findViewById(R.id.tvLibroTitulo);
+            tvLibroAutor = itemView.findViewById(R.id.tvLibroAutor);
+            tvLibroStock = itemView.findViewById(R.id.tvLibroStock);
         }
     }
 }

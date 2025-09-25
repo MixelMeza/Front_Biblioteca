@@ -54,7 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Fecha (YYYY-MM-DD)"
+            android:hint="Fecha"
             android:background="@drawable/rounded_edittext"
             android:paddingLeft="8dp"
             android:textColor="#2E7D32"

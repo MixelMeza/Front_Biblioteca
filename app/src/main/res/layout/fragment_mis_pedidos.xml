@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="0dp">
+
+    <!-- Filtro admin mejorado -->
+    <LinearLayout
+        android:id="@+id/layoutFiltroAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="#F7FAFC"
+        android:gravity="center_vertical"
+        android:elevation="4dp"
+        android:layout_margin="8dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#F7FAFC"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:id="@+id/tvFiltroAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filtrar por estado:"
+            android:textColor="#388E3C"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginEnd="8dp" />
+        <Spinner
+            android:id="@+id/spinnerEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_spinner_admin"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_marginEnd="8dp"
+            android:elevation="2dp" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchViewPedidos"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:queryHint="Buscar pedido..."
+        android:iconifiedByDefault="false"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="4dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:backgroundTint="#F7FAFC"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_gravity="center_horizontal" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMisPedidos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="8dp" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

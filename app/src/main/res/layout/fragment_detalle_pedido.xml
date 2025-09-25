@@ -167,5 +167,17 @@
                     android:layout_marginTop="8dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+    <Button
+    android:id="@+id/btnCancelarPedido"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Cancelar Pedido"
+    android:textAllCaps="true"
+    android:textStyle="bold"
+    android:textSize="16sp"
+    android:backgroundTint="#F44336"
+    android:textColor="#FFFFFF"
+    android:layout_marginTop="16dp"
+    android:visibility="gone" />
     </LinearLayout>
 </ScrollView>

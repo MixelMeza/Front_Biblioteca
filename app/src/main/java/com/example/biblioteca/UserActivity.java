@@ -26,10 +26,27 @@ public class UserActivity extends AppCompatActivity {
         });
         navView.setNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.nav_user_signout) {
+                getSharedPreferences("session", MODE_PRIVATE).edit().remove("usuario").apply();
                 Intent intent = new Intent(UserActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
+                return true;
+            } else if (item.getItemId() == R.id.nav_user_pedidos) {
+                getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.user_content, new com.example.biblioteca.ui.pedidos.MisPedidosFragment())
+                    .addToBackStack(null)
+                    .commit();
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            } else if (item.getItemId() == R.id.nav_user_books) {
+                getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.user_content, new com.example.biblioteca.ui.libros.LibrosFragment())
+                    .addToBackStack(null)
+                    .commit();
+                drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
             return false;
