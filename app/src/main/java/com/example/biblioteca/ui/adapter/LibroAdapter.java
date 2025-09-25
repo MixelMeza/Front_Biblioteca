@@ -12,6 +12,12 @@ import com.example.biblioteca.ui.model.Libro;
 import java.util.List;
 
 public class LibroAdapter extends RecyclerView.Adapter<LibroAdapter.LibroViewHolder> {
+    private boolean modoAdmin = false;
+
+    public void setModoAdmin(boolean admin) {
+        this.modoAdmin = admin;
+        notifyDataSetChanged();
+    }
     private List<Libro> libros;
     private OnLibroClickListener listener;
 
@@ -31,27 +37,42 @@ public class LibroAdapter extends RecyclerView.Adapter<LibroAdapter.LibroViewHol
     @NonNull
     @Override
     public LibroViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_libro_card, parent, false);
+        View view;
+        if (modoAdmin) {
+            view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_libro_admin, parent, false);
+        } else {
+            view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_libro, parent, false);
+        }
         return new LibroViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull LibroViewHolder holder, int position) {
         Libro libro = libros.get(position);
-
-        // Asignar datos
         holder.tvTitulo.setText(libro.getTitulo());
         holder.tvAutor.setText(libro.getAutor());
-        holder.tvStock.setText("Stock: " + (libro.getStock() != null ? libro.getStock() : 0));
-
-        // Eventos de botones
-        holder.btnEditar.setOnClickListener(v -> {
-            if (listener != null) listener.onEditarClick(libro);
-        });
-        holder.btnEliminar.setOnClickListener(v -> {
-            if (listener != null) listener.onEliminarClick(libro);
-        });
+        if (modoAdmin) {
+            TextView tvPrecio = holder.itemView.findViewById(R.id.tvLibroPrecio);
+            if (tvPrecio != null) {
+                tvPrecio.setText("Precio: $" + (libro.getStock() != null ? libro.getStock() : 0));
+            }
+            View btnEditar = holder.itemView.findViewById(R.id.btnEditarLibro);
+            View btnEliminar = holder.itemView.findViewById(R.id.btnEliminarLibro);
+            btnEditar.setOnClickListener(v -> {
+                if (listener != null) listener.onEditarClick(libro);
+            });
+            btnEliminar.setOnClickListener(v -> {
+                if (listener != null) listener.onEliminarClick(libro);
+            });
+        } else {
+            holder.tvStock.setText("Precio: $" + (libro.getStock() != null ? libro.getStock() : 0));
+            View btnHacerPedido = holder.itemView.findViewById(R.id.btnHacerPedido);
+            btnHacerPedido.setOnClickListener(v -> {
+                // Acción para hacer pedido
+            });
+        }
     }
 
     @Override
@@ -61,15 +82,14 @@ public class LibroAdapter extends RecyclerView.Adapter<LibroAdapter.LibroViewHol
 
     public static class LibroViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitulo, tvAutor, tvStock;
-        View btnEditar, btnEliminar;
+        View btnEditar;
 
         public LibroViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitulo = itemView.findViewById(R.id.tvLibroTitulo);
             tvAutor = itemView.findViewById(R.id.tvLibroAutor);
             tvStock = itemView.findViewById(R.id.tvLibroStock);
-            btnEditar = itemView.findViewById(R.id.btnEditar);
-            btnEliminar = itemView.findViewById(R.id.btnEliminar);
+            btnEditar = itemView.findViewById(R.id.btnEditarLibro);
         }
     }
 }

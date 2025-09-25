@@ -70,25 +70,13 @@
                 android:tint="#FFC107"
                 android:layout_marginEnd="6dp" />
             <TextView
-                android:id="@+id/tvLibroStock"
+                android:id="@+id/tvLibroPrecio"
                 android:text="Precio: $0"
                 android:textColor="#388E3C"
                 android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btnHacerPedido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hacer Pedido"
-            android:textAllCaps="true"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#388E3C"
-            android:layout_marginTop="16dp" />
 
         <Button
             android:id="@+id/btnEditarLibro"
@@ -100,8 +88,7 @@
             android:textSize="15sp"
             android:textColor="#FFFFFF"
             android:backgroundTint="#1976D2"
-            android:layout_marginTop="8dp"
-            android:visibility="gone" />
+            android:layout_marginTop="16dp" />
         <Button
             android:id="@+id/btnEliminarLibro"
             android:layout_width="match_parent"
@@ -112,7 +99,6 @@
             android:textSize="15sp"
             android:textColor="#FFFFFF"
             android:backgroundTint="#D32F2F"
-            android:layout_marginTop="8dp"
-            android:visibility="gone" />
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

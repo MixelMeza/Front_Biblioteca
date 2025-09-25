@@ -53,7 +53,7 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.PedidoVi
     holder.tvFecha.setText(pedido.fecha);
     holder.tvCantidad.setText(pedido.libro != null ? pedido.libro.titulo + " - " + pedido.libro.autor : "");
     holder.tvDireccion.setText(pedido.descripcion);
-    holder.tvTotal.setText(pedido.libro != null && pedido.libro.stock != null ? "Stock: " + pedido.libro.stock : "");
+    holder.tvTotal.setText(pedido.libro != null && pedido.libro.stock != null ? "Precio: $" + pedido.libro.stock : "");
 
     // Cambiar color de fondo de la tarjeta según estado
     int cardColor;
@@ -78,6 +78,19 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.PedidoVi
     }
 
     View btnVerDetalles = holder.itemView.findViewById(R.id.btnVerDetalles);
+    View btnEditarPedido = holder.itemView.findViewById(R.id.btnEditarPedido);
+    android.content.SharedPreferences prefs = holder.itemView.getContext().getSharedPreferences("session", android.content.Context.MODE_PRIVATE);
+    String rol = prefs.getString("rol", "usuario");
+    if (rol.equalsIgnoreCase("usuario")) {
+        btnEditarPedido.setVisibility(View.VISIBLE);
+        btnEditarPedido.setOnClickListener(v -> {
+            // Aquí deberías abrir el fragment o activity de edición de pedido
+            // Por ahora solo muestra un Toast
+            android.widget.Toast.makeText(holder.itemView.getContext(), "Editar pedido: " + pedido.idPedido, android.widget.Toast.LENGTH_SHORT).show();
+        });
+    } else {
+        btnEditarPedido.setVisibility(View.GONE);
+    }
     btnVerDetalles.setOnClickListener(v -> {
         androidx.fragment.app.FragmentActivity activity = (androidx.fragment.app.FragmentActivity) v.getContext();
         activity.getSupportFragmentManager()
@@ -95,8 +108,8 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.PedidoVi
         return pedidos.size();
     }
     static class PedidoViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNumero, tvEstado, tvUsuario, tvFecha, tvCantidad, tvDireccion, tvTotal;
-        View btnVerDetalles;
+    TextView tvNumero, tvEstado, tvUsuario, tvFecha, tvCantidad, tvDireccion, tvTotal;
+    View btnVerDetalles, btnEditarPedido;
         public PedidoViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNumero = itemView.findViewById(R.id.tvNumero);
@@ -107,6 +120,7 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.PedidoVi
             tvDireccion = itemView.findViewById(R.id.tvDireccion);
             tvTotal = itemView.findViewById(R.id.tvTotal);
             btnVerDetalles = itemView.findViewById(R.id.btnVerDetalles);
+            btnEditarPedido = itemView.findViewById(R.id.btnEditarPedido);
         }
     }
 

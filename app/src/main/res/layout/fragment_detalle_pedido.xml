@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Detalle del Pedido -->
         <TextView
             android:id="@+id/tvDetalleNumero"
             android:layout_width="wrap_content"
@@ -46,7 +47,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:background="#FFFFFF"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp">
@@ -75,28 +76,26 @@
                     android:id="@+id/tvClienteEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="maria.garcia@email.com"
-                    android:textColor="#333333" />
-                <TextView
-                    android:id="@+id/tvClienteTelefono"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+34 612 345 678"
-                    android:textColor="#333333" />
+                    android:text="Email: "
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp" />
                 <TextView
                     android:id="@+id/tvClienteDireccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calle Mayor 123, 28001 Madrid"
+                    android:text="Dirección: "
                     android:textColor="#333333"
-                    android:layout_marginTop="8dp" />
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp" />
                 <TextView
-                    android:id="@+id/tvClienteNotas"
+                    android:id="@+id/tvClienteTelefono"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Entregar en horario de mañana"
+                    android:text="Teléfono: "
                     android:textColor="#333333"
-                    android:layout_marginTop="8dp" />
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -104,6 +103,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:background="#FFFFFF"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp">
@@ -120,64 +120,247 @@
                     android:layout_marginBottom="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tvPedidoFecha"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:text="Fecha del Pedido"
-                        android:textColor="#333333"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-                    <TextView
-                        android:text="Entrega Estimada"
-                        android:textColor="#333333"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
+                    android:text="Fecha: "
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp" />
+                <TextView
+                    android:id="@+id/tvPedidoEntrega"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:id="@+id/tvPedidoFecha"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="2024-01-15"
-                        android:textColor="#333333" />
-                    <TextView
-                        android:id="@+id/tvPedidoEntrega"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="2024-01-17"
-                        android:textColor="#333333" />
-                </LinearLayout>
+                    android:text="Entrega Estimada: -"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Información del Libro -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:text="Información del Libro"
+                    android:textStyle="bold"
+                    android:textColor="#1B5E20"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
                 <TextView
                     android:id="@+id/tvPedidoTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="€45.50"
+                    android:text="Precio: $0"
                     android:textColor="#4CAF50"
                     android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_marginTop="8dp" />
+                    android:textSize="15sp"
+                    android:layout_marginTop="4dp" />
+                <TextView
+                    android:id="@+id/tvLibroTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Título: "
+                    android:textColor="#388E3C"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/tvLibroAutor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Autor: "
+                    android:textColor="#333333" />
+                <TextView
+                    android:id="@+id/tvLibroCategoria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categoría: "
+                    android:textColor="#333333" />
+                <TextView
+                    android:id="@+id/tvLibroCodigo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Código: "
+                    android:textColor="#333333" />
+                <TextView
+                    android:id="@+id/tvLibroPrecio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: $0"
+                    android:textColor="#4CAF50"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-    <Button
-    android:id="@+id/btnCancelarPedido"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Cancelar Pedido"
-    android:textAllCaps="true"
-    android:textStyle="bold"
-    android:textSize="16sp"
-    android:backgroundTint="#F44336"
-    android:textColor="#FFFFFF"
-    android:layout_marginTop="16dp"
-    android:visibility="gone" />
+
+        <!-- Datos adicionales del Pedido -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:text="Datos adicionales del Pedido"
+                    android:textStyle="bold"
+                    android:textColor="#1B5E20"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!-- Dirección -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_home"
+                        android:contentDescription="Dirección" />
+                    <TextView
+                        android:id="@+id/tvExtraDireccion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dirección: La Era 2da Etapa"
+                        android:textColor="#333333"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <!-- Teléfono -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_person"
+                        android:contentDescription="Teléfono" />
+                    <TextView
+                        android:id="@+id/tvExtraTelefono"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teléfono: +34 612 345 678"
+                        android:textColor="#333333"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <!-- Notas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_info"
+                        android:contentDescription="Notas" />
+                    <TextView
+                        android:id="@+id/tvExtraNotas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Notas: Entregar en horario de mañana"
+                        android:textColor="#333333"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <!-- Método de Pago -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_dashboard"
+                        android:contentDescription="Método de Pago" />
+                    <TextView
+                        android:id="@+id/tvExtraMetodoPago"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Método de Pago: Efectivo"
+                        android:textColor="#333333"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <!-- Estado de Pago -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_settings"
+                        android:contentDescription="Estado de Pago" />
+                    <TextView
+                        android:id="@+id/tvExtraEstadoPago"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estado de Pago: Pagado"
+                        android:textColor="#333333"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <!-- Prioridad -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_group"
+                        android:contentDescription="Prioridad" />
+                    <TextView
+                        android:id="@+id/tvExtraPrioridad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prioridad: Alta"
+                        android:textColor="#333333"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+                <!-- Botón Cancelar Pedido -->
+                <Button
+                    android:id="@+id/btnCancelarPedido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cancelar Pedido"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#D32F2F"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:textStyle="bold"
+                    android:elevation="2dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 </ScrollView>

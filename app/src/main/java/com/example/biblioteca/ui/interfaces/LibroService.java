@@ -13,21 +13,21 @@ import com.example.biblioteca.ui.model.Libro;
 import java.util.List;
 
 public interface LibroService {
-    @GET("api/libros")
+    @GET("libros")
     Call<List<Libro>> getLibros();
 
-    @GET("api/libros/{id}")
+    @GET("libros/{id}")
     Call<Libro> getLibro(@Path("id") Long id);
 
-    @POST("api/libros")
+    @POST("libros")
     Call<Libro> createLibro(@Body Libro libro);
 
-    @PUT("api/libros/{id}")
+    @PUT("libros/{id}")
     Call<Libro> updateLibro(@Path("id") Long id, @Body Libro libro);
 
-    @DELETE("api/libros/{id}")
+    @DELETE("libros/{id}")
     Call<Void> deleteLibro(@Path("id") Long id);
 
-    @PUT("api/libros/{id}/{estado}")
+    @PUT("libros/{id}/{estado}")
     Call<Libro> cambiarEstado(@Path("id") Long id, @Path("estado") String estado);
 }

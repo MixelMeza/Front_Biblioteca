@@ -24,24 +24,69 @@
             android:hint="Libro"
             android:backgroundTint="#388E3C"
             android:layout_marginBottom="12dp" />
+        
+        
         <EditText
-            android:id="@+id/etDescripcion"
+            android:id="@+id/etDireccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Descripción"
+            android:hint="Dirección"
             android:backgroundTint="#388E3C"
-            android:layout_marginBottom="12dp" />
-        <Spinner
-            android:id="@+id/spinnerEstadoCrear"
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
+        <!-- Teléfono -->
+        <EditText
+            android:id="@+id/etTelefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" />
+            android:hint="Teléfono"
+            android:backgroundTint="#388E3C"
+            android:layout_marginBottom="12dp"
+            android:inputType="phone" />
+        <!-- Notas -->
+        <EditText
+            android:id="@+id/etNotas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Notas"
+            android:backgroundTint="#388E3C"
+            android:layout_marginBottom="12dp"
+            android:inputType="textMultiLine"
+            android:minLines="2" />
+        <!-- Método de Pago -->
+        <EditText
+            android:id="@+id/etMetodoPago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Método de Pago"
+            android:backgroundTint="#388E3C"
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
+        <!-- Estado de Pago -->
+        <EditText
+            android:id="@+id/etEstadoPago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Estado de Pago"
+            android:backgroundTint="#388E3C"
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
+        <!-- Prioridad -->
+        <EditText
+            android:id="@+id/etPrioridad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prioridad"
+            android:backgroundTint="#388E3C"
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
         <Button
             android:id="@+id/btnEnviarPedido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Enviar Pedido"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#388E3C" />
+            android:backgroundTint="#388E3C"
+            android:layout_marginTop="24dp" />
     </LinearLayout>
 </ScrollView>

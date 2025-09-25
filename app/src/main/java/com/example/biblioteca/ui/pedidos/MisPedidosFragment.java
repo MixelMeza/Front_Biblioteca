@@ -33,17 +33,7 @@ public class MisPedidosFragment extends Fragment {
     // Filtrar por estado para el spinner admin
     private void filtrarPorEstado(String estado) {
         if (pedidosOriginal == null || adapter == null) return;
-        if (estado.equals("Todos")) {
-            adapter.setPedidos(pedidosOriginal);
-            return;
-        }
-        java.util.List<Pedido> filtrados = new java.util.ArrayList<>();
-        for (Pedido p : pedidosOriginal) {
-            if (p.estado != null && p.estado.equalsIgnoreCase(estado)) {
-                filtrados.add(p);
-            }
-        }
-        adapter.setPedidos(filtrados);
+        adapter.setPedidos(pedidosOriginal);
     }
 
     // Filtrar por texto
@@ -96,22 +86,16 @@ public class MisPedidosFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Pedido>> call, Response<List<Pedido>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    String usuarioActual = obtenerUsuarioActual();
-                    List<Pedido> filtrados = new java.util.ArrayList<>();
-                    for (Pedido p : response.body()) {
-                        if (p.usuario != null && p.usuario.equalsIgnoreCase(usuarioActual)) {
-                            filtrados.add(p);
-                        }
-                    }
-                    pedidosOriginal = filtrados;
+                    List<Pedido> pedidosResponse = response.body();
+                    pedidosOriginal = pedidosResponse;
                     if (adapter == null) {
                         adapter = new PedidosAdapter(pedidosOriginal);
-                        adapter.setModoAdmin(false);
+                        adapter.setModoAdmin(esAdmin());
                         adapter.setOnPedidosRefreshListener(MisPedidosFragment.this::cargarPedidos);
                         recyclerView.setAdapter(adapter);
                     } else {
                         adapter.setPedidos(pedidosOriginal);
-                        adapter.setModoAdmin(false);
+                        adapter.setModoAdmin(esAdmin());
                         adapter.setOnPedidosRefreshListener(MisPedidosFragment.this::cargarPedidos);
                     }
                     android.widget.Toast.makeText(requireContext(), "Lista de pedidos actualizada", android.widget.Toast.LENGTH_SHORT).show();

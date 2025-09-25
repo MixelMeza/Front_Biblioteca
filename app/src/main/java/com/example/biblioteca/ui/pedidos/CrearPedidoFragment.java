@@ -23,10 +23,14 @@ public class CrearPedidoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_crear_pedido, container, false);
-        Button btnEnviar = view.findViewById(R.id.btnEnviarPedido);
-        EditText etLibro = view.findViewById(R.id.etLibro);
-        EditText etDescripcion = view.findViewById(R.id.etDescripcion);
-        Spinner spinnerEstado = view.findViewById(R.id.spinnerEstadoCrear);
+    Button btnEnviar = view.findViewById(R.id.btnEnviarPedido);
+    EditText etLibro = view.findViewById(R.id.etLibro);
+    EditText etDireccion = view.findViewById(R.id.etDireccion);
+    EditText etTelefono = view.findViewById(R.id.etTelefono);
+    EditText etNotas = view.findViewById(R.id.etNotas);
+    EditText etMetodoPago = view.findViewById(R.id.etMetodoPago);
+    EditText etEstadoPago = view.findViewById(R.id.etEstadoPago);
+    EditText etPrioridad = view.findViewById(R.id.etPrioridad);
 
         // Si se recibe un libro por argumentos, rellenar el campo automáticamente
         Bundle args = getArguments();
@@ -39,9 +43,13 @@ public class CrearPedidoFragment extends Fragment {
 
         btnEnviar.setOnClickListener(v -> {
             String libro = etLibro.getText().toString();
-            String descripcion = etDescripcion.getText().toString();
-            Object estadoObj = spinnerEstado.getSelectedItem();
-            String estado = estadoObj != null ? estadoObj.toString() : "PENDIENTE";
+            String direccion = etDireccion.getText().toString();
+            String telefono = etTelefono.getText().toString();
+            String notas = etNotas.getText().toString();
+            String metodoPago = etMetodoPago.getText().toString();
+            String estadoPago = etEstadoPago.getText().toString();
+            String prioridad = etPrioridad.getText().toString();
+            String estado =  "PENDIENTE";
             Pedido pedido = new Pedido();
             pedido.libro = new Pedido.Libro();
             // Obtener el id del libro si se recibió por argumentos
@@ -51,9 +59,21 @@ public class CrearPedidoFragment extends Fragment {
                     pedido.libro.idLibro = libroArg.getIdLibro();
                 }
             }
+            // Construir la descripción con todos los campos
+            String descripcion =
+                "Direccion:" + direccion + "\n" +
+                "Telefono:" + telefono + "\n" +
+                "Notas:" + notas + "\n" +
+                "MetodoPago:" + metodoPago + "\n" +
+                "EstadoPago:" + estadoPago + "\n" +
+                "Prioridad:" + prioridad;
             pedido.descripcion = descripcion;
             pedido.estado = estado;
             pedido.usuario = obtenerUsuarioActual();
+            // Registrar fecha actual
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault());
+            String fechaActual = sdf.format(new java.util.Date());
+            pedido.fecha = fechaActual;
             PedidoService api = ApiClient.getClient().create(PedidoService.class);
             Call<Pedido> call = api.createPedido(pedido);
             call.enqueue(new Callback<Pedido>() {
