@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/etNumeroTarjeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de tarjeta"
+        android:inputType="number"
+        android:maxLength="16"
+        android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/etNombreTarjeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre en la tarjeta"
+        android:inputType="textPersonName"
+        android:drawableLeft="@android:drawable/ic_menu_myplaces"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/etVencimientoTarjeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vencimiento (MM/AA)"
+        android:inputType="text"
+        android:maxLength="5"
+        android:drawableLeft="@android:drawable/ic_menu_today"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/etCvvTarjeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="CVV"
+        android:inputType="numberPassword"
+        android:maxLength="4"
+        android:drawableLeft="@android:drawable/ic_lock_idle_lock"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btnPagarSimulado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal_200"
+        android:text="Pagar" />
+
+</LinearLayout>

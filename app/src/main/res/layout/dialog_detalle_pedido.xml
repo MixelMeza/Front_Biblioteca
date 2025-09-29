@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Info del pedido -->
+        <TextView android:text="Información del pedido" android:textStyle="bold" android:textSize="18sp" android:layout_marginBottom="8dp" android:drawableLeft="@android:drawable/ic_menu_info_details" android:drawablePadding="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:src="@android:drawable/ic_menu_myplaces" android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/tvNombreDetalle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Nombre"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:src="@android:drawable/ic_menu_directions" android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/tvDireccionDetalle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Dirección"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:src="@android:drawable/ic_menu_call" android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/tvTelefonoDetalle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Teléfono"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:src="@android:drawable/ic_menu_edit" android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/tvDescripcionDetalle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Descripción"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:src="@android:drawable/ic_menu_today" android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/tvFechaDetalle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Fecha"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:src="@android:drawable/ic_menu_info_details" android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/tvEstadoDetalle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Estado"/>
+        </LinearLayout>
+
+        <!-- Info del libro -->
+        <TextView android:text="Libro pedido" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="16dp" android:layout_marginBottom="8dp" android:drawableLeft="@android:drawable/ic_menu_info_details" android:drawablePadding="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:src="@android:drawable/ic_menu_info_details" android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/tvTituloLibroDetalle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Título"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:src="@android:drawable/ic_menu_edit" android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/tvAutorLibroDetalle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Autor"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:src="@android:drawable/ic_menu_agenda" android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/tvEditorialLibroDetalle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Editorial"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCancelarPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancelar pedido"
+            android:layout_marginTop="24dp"
+            android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
+            android:backgroundTint="@color/design_default_color_error"/>
+    </LinearLayout>
+</ScrollView>
